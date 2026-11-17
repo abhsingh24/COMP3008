@@ -63,18 +63,86 @@
       <div class="permit-title">
         <h1>Parking Permit</h1>
       </div>
-      <div class="accountinfo">
-        <h2>Account</h2>
-        <p>You have no permits</p>
-      </div>
-      <div class="permit-vehicle">
-        <h2>Vehicle</h2>
-        <p>No vehicle added</p>
-        <button type="add_V">Add Vehicle</button>
-      </div>
-      <div class="permit-timeline">
-        <h2>Account ----- Vehicle------Permit------Pay</h2>
-      </div>
+
+      <section class="screen active" data-screen="account-vehicle">
+        <div class="accountinfo">
+          <h2>Account</h2>
+          <p>You have no permits</p>
+        </div>
+        <div class="permit-vehicle">
+          <h2>Vehicle</h2>
+          <p>No vehicle added</p>
+          <button type="button" data-goto="vehicle-form">Add Vehicle</button>
+        </div>
+      </section>
+
+      <section class="screen" data-screen="vehicle-form">
+        <div class="permit-vehicle">
+          <h2>Vehicle information</h2>
+          <button type="button" data-goto="vehicle-added">Save</button>
+        </div>
+      </section>
+
+      <section class="screen" data-screen="vehicle-added">
+        <div class="accountinfo">
+          <h2>Account</h2>
+          <p>You have no permits</p>
+        </div>
+        <div class="permit-vehicle">
+          <h2>Vehicle</h2>
+          <p>Vehicle saved</p>
+          <button type="button" data-goto="permit-map">Continue</button>
+        </div>
+      </section>
+
+      <section class="screen" data-screen="permit-map">
+        <div class="permit-vehicle">
+          <h2>Parking Permits</h2>
+          <p>Select a lot on the map</p>
+          <button type="button" data-goto="lot-permits">P7</button>
+        </div>
+      </section>
+
+      <section class="screen" data-screen="lot-permits">
+        <div class="permit-vehicle">
+          <h2>Lot P7</h2>
+          <button type="button" data-goto="permit-map">Back to map</button>
+        </div>
+        <div class="permit-vehicle">
+          <h2>Student Permit – Lot P7</h2>
+          <p>$580 + HST</p>
+          <button type="button" data-goto="permit-details">Select</button>
+        </div>
+      </section>
+
+      <section class="screen" data-screen="permit-details">
+        <div class="permit-vehicle">
+          <h2>Permit details</h2>
+          <button type="button" data-goto="cart">Reserve</button>
+          <button type="button" data-goto="lot-permits">Back</button>
+          <button type="button" data-goto="sold-out">Test: sold out</button>
+        </div>
+      </section>
+
+      <section class="screen" data-screen="sold-out">
+        <div class="permit-vehicle">
+          <h2>This permit is no longer available</h2>
+          <button type="button" data-goto="permit-map">
+            Show other permits
+          </button>
+        </div>
+      </section>
+
+      <section class="screen" data-screen="cart">
+        <div class="permit-vehicle">
+          <h2>Your Cart</h2>
+          <p>Student Permit – Lot P7 (Reserved)</p>
+          <button type="button" data-goto="permit-map">
+            Cancel reservation
+          </button>
+        </div>
+      </section>
     </main>
+    <script src="js/main.js"></script>
   </body>
 </html>
