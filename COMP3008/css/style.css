@@ -294,6 +294,12 @@ body {
 
 /*-------------------Permit Page----------------------------*/
 .permit-info {
+  width: 100%;
+  min-height: 89vh;
+
+  background-color: rgb(231, 231, 231);
+  margin: 0 auto;
+  padding: 3% 5.5%;
   display: block;
 }
 
@@ -306,4 +312,133 @@ body {
   grid-template-columns: 1fr 1fr;
   gap: 3%;
   align-items: start;
+}
+
+.permit-title h1 {
+  font-size: 1.8vw;
+  font-weight: 700;
+  color: black;
+}
+
+.accountinfo,
+.permit-vehicle {
+  background-color: rgba(255, 255, 255, 0.815);
+  border: 1px solid rgb(212, 214, 214);
+  border-radius: 0.7vw;
+  padding: 1.5%;
+  height: 100%;
+  width: 100%;
+  margin-top: 3%;
+}
+
+.accountinfo {
+  margin-left: 4%;
+}
+
+.accountinfo h2,
+.permit-vehicle h2 {
+  font-size: 1vw;
+  font-weight: 700;
+  color: darkred;
+
+  margin-bottom: 4%;
+}
+
+.permit-vehicle p {
+  font-size: 0.8vw;
+  color: lightslategray;
+  align-items: center;
+  margin-left: 40%;
+  margin-top: 1%;
+}
+
+.permit-vehicle button {
+  background-color: darkred;
+  border: none;
+  color: white;
+  padding: 1.5% 2%;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  margin: 1% 2%;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.permit-vehicle button:hover {
+  background-color: red;
+}
+
+.info_questions {
+  margin-top: -5%;
+  width: 30%;
+  margin-left: 8%;
+}
+
+.accountinfo p {
+  font-size: 0.8vw;
+  width: 100%;
+  color: lightslategray;
+  align-items: right;
+  margin-left: 1%;
+  margin-top: 5%;
+}
+
+.info_answers {
+  margin-top: -19%;
+  margin-left: 25%;
+  width: 30%;
+  height: 100%;
+}
+
+.info_answers p {
+  font-size: 0.8vw;
+  color: black;
+  font-weight: 700;
+  align-items: right;
+  margin-left: 0%;
+  margin-top: 5.2%;
+}
+
+.info_pre-fill p {
+  font-size: 0.8vw;
+  color: green;
+  align-items: left;
+  margin-left: 74%;
+}
+
+.cu-map {
+  margin-left: 10%;
+  margin-top: 3%;
+  width: 130%;
+}
+
+.permit-vehicle_map {
+  background-color: rgba(255, 255, 255, 0.815);
+  border: 1px solid rgb(212, 214, 214);
+  border-radius: 0.7vw;
+  padding: 1.5%;
+  margin-top: 3%;
+  margin-left: 37%;
+  height: 96%;
+  width: 55%;
+}
+
+.permit-vehicle_map button {
+  background-color: darkred;
+  border: none;
+  color: white;
+  padding: 3% 8%;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  margin: 1% 2%;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.permit-vehicle_map button:hover {
+  background-color: red;
 }
