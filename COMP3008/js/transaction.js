@@ -2,6 +2,7 @@
 const Transaction = (function () {
   const RESERVATION_KEY = "cuParking.reservation";  
   const VEHICLE_KEY = "cuParking.vehicle";
+  const HST_RATE = 0.13; // Ontario HST
 
   const HOLD_MINUTES = 15;
 
@@ -51,11 +52,24 @@ const Transaction = (function () {
     return readJSON(VEHICLE_KEY, null);
   }
 
+  // Money is handled in cents (whole numbers) to avoid rounding errors.
+  function getTotals(price) {
+    const subtotal = Math.round(price * 100);
+    const hst = Math.round(subtotal * HST_RATE);
+    return { subtotal: subtotal, hst: hst, total: subtotal + hst };
+  }
+
+  function formatMoney(cents) {
+    return "$" + (cents / 100).toFixed(2);
+  }
+
   // The public interface. Everything above it stays private.
   return {
     saveReservation: saveReservation,
     getReservation: getReservation,
     clearReservation: clearReservation,
     getVehicle: getVehicle,
+    getTotals: getTotals,
+    formatMoney: formatMoney,
   };
 })();
