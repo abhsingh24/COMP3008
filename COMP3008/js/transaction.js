@@ -2,6 +2,7 @@
 const Transaction = (function () {
   const RESERVATION_KEY = "cuParking.reservation";  
   const VEHICLE_KEY = "cuParking.vehicle";
+  const PERMITS_KEY = "cuParking.permits";
   const HST_RATE = 0.13; // Ontario HST
 
   const HOLD_MINUTES = 15;
@@ -77,6 +78,29 @@ const Transaction = (function () {
     }
   }
 
+  // Turns the paid reservation into an active permit and empties the cart.
+  // Only the last 4 card digits are kept, never the full number or CVC.
+  function completePayment(cardLast4) {
+    const reservation = getReservation();
+    if (!reservation) {
+      return null;
+    }
+    const permit = {
+      lot: reservation.lot,
+      name: reservation.name,
+      term: reservation.term,
+      vehicle: reservation.vehicle,
+      paid: getTotals(reservation.price).total,
+      cardLast4: cardLast4,
+      paidAt: Date.now(),
+    };
+    const permits = readJSON(PERMITS_KEY, []);
+    permits.push(permit);
+    writeJSON(PERMITS_KEY, permits);
+    clearReservation();
+    return permit;
+  }
+
   // The public interface. Everything above it stays private.
   return {
     saveReservation: saveReservation,
@@ -87,5 +111,6 @@ const Transaction = (function () {
     formatMoney: formatMoney,
     timeLeft: timeLeft,
     endHoldNow: endHoldNow,
+    completePayment: completePayment,
   };
 })();

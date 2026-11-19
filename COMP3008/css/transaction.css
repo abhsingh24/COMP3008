@@ -219,3 +219,82 @@
   background-color: #9aa0a6;
   cursor: not-allowed;
 }
+
+.tx-pay-body {
+  background-color: rgb(231, 231, 231);
+}
+
+.tx-pay-header {
+  padding: 1.25rem 5.5%;
+  background-color: #0f2240;
+  color: #ffffff;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.tx-pay-card {
+  max-width: 40rem;
+  margin: 0 auto;
+}
+
+.tx-pay-summary {
+  margin-bottom: 1rem;
+  color: var(--tx-muted);
+}
+
+.tx-notice {
+  margin-bottom: 1.5rem;
+  padding: 0.75rem 1rem;
+  border-left: 4px solid #1a73e8;
+  background-color: #e8f0fe;
+  color: var(--tx-text);
+  font-size: 0.875rem;
+}
+
+.tx-field {
+  margin-bottom: 1rem;
+}
+
+.tx-field label {
+  display: block;
+  margin-bottom: 0.25rem;
+  color: var(--tx-text);
+  font-weight: 700;
+}
+
+.tx-field input {
+  width: 100%;
+  padding: 0.625rem 0.75rem;
+  border: 1px solid #767f89;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.tx-field input:focus {
+  outline: 3px solid #1a73e8;
+  outline-offset: 1px;
+}
+
+.tx-field input[aria-invalid="true"] {
+  border-color: var(--tx-red);
+  background-color: #fdecee;
+}
+
+.tx-error {
+  margin-top: 0.25rem;
+  color: var(--tx-red);
+  font-size: 0.875rem;
+}
+
+.tx-field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.tx-center {
+  display: block;
+  margin-top: 1rem;
+  text-align: center;
+}

@@ -3,22 +3,89 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Carleton University - Parking Services</title>
+    <title>Payment - Carleton University Parking Services</title>
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <link rel="stylesheet" href="css/style.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    />
+    <link rel="stylesheet" href="css/transaction.css" />
   </head>
 
-  <body>
-    <!--Navigation bar at the top-->
-    <div class="navbar">
-      <!--Buttons on the navigation bar-->
-      <ul class="headerUl"></ul>
-    </div>
+  <body class="tx-pay-body">
+    <header class="tx-pay-header">Carleton Parking Services – Payment</header>
 
-    <main class="payment-info"></main>
+    <main class="tx-main">
+      <div class="tx-card tx-pay-card">
+        <h1 class="tx-card-title">Payment</h1>
+        <p class="tx-pay-summary" id="pay-summary"></p>
+
+        <p class="tx-notice">
+          Student course prototype: no real payment is made, so don't enter real
+          card details. Test cards: 4242 4242 4242 4242 (approved) and
+          4000 0000 0000 0002 (declined).
+        </p>
+
+        <div id="pay-blocked" hidden>
+          <p class="tx-alert" id="pay-blocked-msg"></p>
+          <a href="cart.html" class="tx-link">Return to cart</a>
+        </div>
+
+        <form id="pay-form" novalidate>
+          <div role="alert">
+            <p class="tx-alert" id="pay-declined" hidden>
+              Your card was declined and no money was taken. Check the details or
+              try a different card.
+            </p>
+          </div>
+
+          <div class="tx-field">
+            <label for="pay-card">Card number</label>
+            <input
+              id="pay-card"
+              type="text"
+              inputmode="numeric"
+              autocomplete="off"
+              placeholder="1234 1234 1234 1234"
+              aria-describedby="pay-card-error"
+            />
+            <p class="tx-error" id="pay-card-error"></p>
+          </div>
+
+          <div class="tx-field-row">
+            <div class="tx-field">
+              <label for="pay-expiry">Expiry date</label>
+              <input
+                id="pay-expiry"
+                type="text"
+                inputmode="numeric"
+                autocomplete="off"
+                placeholder="MM / YY"
+                aria-describedby="pay-expiry-error"
+              />
+              <p class="tx-error" id="pay-expiry-error"></p>
+            </div>
+            <div class="tx-field">
+              <label for="pay-cvc">CVC</label>
+              <input
+                id="pay-cvc"
+                type="text"
+                inputmode="numeric"
+                autocomplete="off"
+                placeholder="123"
+                aria-describedby="pay-cvc-error"
+              />
+              <p class="tx-error" id="pay-cvc-error"></p>
+            </div>
+          </div>
+
+          <button type="submit" class="tx-btn-primary" id="pay-submit">Pay</button>
+          <a href="cart.html" class="tx-link tx-center">Cancel and return to cart</a>
+          <button type="button" class="tx-test-link" id="pay-test-decline">
+            Prototype test: Card is declined
+          </button>
+        </form>
+      </div>
+    </main>
+
+    <script src="js/transaction.js"></script>
+    <script src="js/payment.js"></script>
   </body>
 </html>
