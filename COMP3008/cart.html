@@ -6,6 +6,7 @@
     <title>Carleton University - Parking Services</title>
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/transaction.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
@@ -29,7 +30,7 @@
 
       <!--Buttons on the navigation bar-->
       <ul class="headerUl">
-        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="index.html">Home</a></li>
         <li><a href="#">Appeals</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle">
@@ -59,13 +60,58 @@
       </ul>
     </div>
 
-    <main class="cart-info">
-      <div class="cart-title">
-        <h1>Your Cart</h1>
+    <main class="tx-main">
+      <h1 class="tx-title">Your Cart</h1>
+
+      <div class="tx-card tx-empty" id="cart-empty" hidden>
+        <p>Your cart is empty.</p>
+        <a href="permits.html" class="tx-link">Browse parking permits</a>
       </div>
-      <div class="cart-card">
-        <p>Your cart is empty</p>
+
+      <div class="tx-two-col" id="cart-filled" hidden>
+        <div class="tx-card">
+          <div class="tx-card-head">
+            <h2 class="tx-card-title" id="cart-name"></h2>
+            <span class="tx-badge" id="cart-badge">Reserved</span>
+          </div>
+          <dl class="tx-details">
+            <dt>Term</dt>
+            <dd id="cart-term"></dd>
+            <dt>Vehicle</dt>
+            <dd id="cart-vehicle"></dd>
+            <dt>Status</dt>
+            <dd id="cart-status">Reserved, not paid</dd>
+            <dt>Time left</dt>
+            <dd id="cart-time"></dd>
+          </dl>
+          <button type="button" class="tx-link-btn" id="cart-cancel">Cancel reservation</button>
+          
+        </div>
+
+        <div class="tx-card">
+          <h2 class="tx-card-title">Total</h2>
+          <div role="status">
+            <p class="tx-alert" id="cart-expired" hidden>
+              Your 15-minute hold ended and the permit was released.
+              <a href="permits.html" class="tx-link">Reserve it again</a>
+            </p>
+          </div>
+          <dl class="tx-totals">
+            <dt>Subtotal</dt>
+            <dd id="cart-subtotal"></dd>
+            <dt>HST (13%)</dt>
+            <dd id="cart-hst"></dd>
+            <dt class="tx-total">Total</dt>
+            <dd class="tx-total" id="cart-total"></dd>
+          </dl>
+          <button type="button" class="tx-btn-primary" id="cart-checkout">Checkout</button>
+          <button type="button" class="tx-test-link" id="cart-test-expire">
+            Prototype test: Reservation hold ends
+          </button>
+        </div>
       </div>
     </main>
+    <script src="js/transaction.js"></script>
+    <script src="js/cart.js"></script>
   </body>
 </html>

@@ -1,0 +1,361 @@
+/* Styles for the transaction flow: permit details, cart, payment, success.
+   Every class starts with "tx-" so it can't clash with the group's CSS. */
+:root {
+  --tx-red: #b5122e;
+  --tx-red-dark: #8f0e24;
+  --tx-text: #1f2328;
+  --tx-muted: #5f6b76;
+  --tx-border: #d4d6d6;
+}
+
+.tx-page-head {
+  grid-column: 1 / -1;
+  margin-top: 1rem;
+}
+
+.tx-back {
+  color: var(--tx-red);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.tx-back:hover {
+  text-decoration: underline;
+}
+
+.tx-page-title {
+  font-size: 1.75rem;
+  margin-top: 0.25rem;
+  color: var(--tx-text);
+}
+
+.tx-map {
+  width: 100%;
+  border: 1px solid var(--tx-border);
+  border-radius: 8px;
+}
+
+.tx-card {
+  background-color: #ffffff;
+  border: 1px solid var(--tx-border);
+  border-radius: 10px;
+  padding: 1.5rem;
+}
+
+.tx-card-title {
+  font-size: 1.375rem;
+  margin-bottom: 1rem;
+  color: var(--tx-text);
+}
+
+.tx-details {
+  display: grid;
+  grid-template-columns: 8rem 1fr;
+  row-gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.tx-details dt {
+  color: var(--tx-muted);
+}
+
+.tx-details dd {
+  font-weight: 700;
+  color: var(--tx-text);
+}
+
+.tx-btn-primary {
+  width: 100%;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 6px;
+  background-color: var(--tx-red);
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.tx-btn-primary:hover {
+  background-color: var(--tx-red-dark);
+}
+
+.tx-btn-primary:focus-visible {
+  outline: 3px solid #1a73e8;
+  outline-offset: 2px;
+}
+
+.tx-test-link {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--tx-text);
+  font-family: inherit;
+  font-size: 0.875rem;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* Make the "hidden" attribute always hide, even on elements we give a display value. */
+[hidden] {
+  display: none !important;
+}
+
+.tx-main {
+  min-height: 89vh;
+  padding: 2rem 5.5%;
+  background-color: rgb(231, 231, 231);
+}
+
+.tx-title {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: var(--tx-text);
+}
+
+.tx-two-col {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.tx-card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.tx-card-head .tx-card-title {
+  margin-bottom: 0;
+}
+
+.tx-badge {
+  padding: 0.25rem 0.75rem;
+  border: 1px solid #e0b84c;
+  border-radius: 999px;
+  background-color: #fff6dc;
+  color: #8a5a00;
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+.tx-link-btn {
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--tx-red);
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.tx-link-btn:hover {
+  text-decoration: underline;
+}
+
+.tx-link-btn:focus-visible {
+  outline: 3px solid #1a73e8;
+  outline-offset: 2px;
+}
+
+.tx-totals {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  row-gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.tx-totals dt {
+  color: var(--tx-muted);
+}
+
+.tx-totals dd {
+  text-align: right;
+  color: var(--tx-text);
+}
+
+.tx-totals .tx-total {
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--tx-border);
+  color: var(--tx-text);
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+.tx-empty {
+  text-align: center;
+  color: var(--tx-muted);
+}
+
+.tx-empty p {
+  margin-bottom: 1rem;
+}
+
+.tx-link {
+  color: var(--tx-red);
+  font-weight: 700;
+}
+
+.tx-badge-ended {
+  border-color: #c4c7c5;
+  background-color: #f1f3f4;
+  color: #44474a;
+}
+
+.tx-alert {
+  margin-bottom: 1rem;
+  padding: 0.75rem 1rem;
+  border-left: 4px solid var(--tx-red);
+  background-color: #fdecee;
+  color: var(--tx-text);
+}
+
+.tx-btn-primary:disabled {
+  background-color: #9aa0a6;
+  cursor: not-allowed;
+}
+
+.tx-pay-body {
+  background-color: rgb(231, 231, 231);
+}
+
+.tx-pay-header {
+  padding: 1.25rem 5.5%;
+  background-color: #0f2240;
+  color: #ffffff;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.tx-pay-card {
+  max-width: 40rem;
+  margin: 0 auto;
+}
+
+.tx-pay-summary {
+  margin-bottom: 1rem;
+  color: var(--tx-muted);
+}
+
+.tx-notice {
+  margin-bottom: 1.5rem;
+  padding: 0.75rem 1rem;
+  border-left: 4px solid #1a73e8;
+  background-color: #e8f0fe;
+  color: var(--tx-text);
+  font-size: 0.875rem;
+}
+
+.tx-field {
+  margin-bottom: 1rem;
+}
+
+.tx-field label {
+  display: block;
+  margin-bottom: 0.25rem;
+  color: var(--tx-text);
+  font-weight: 700;
+}
+
+.tx-field input {
+  width: 100%;
+  padding: 0.625rem 0.75rem;
+  border: 1px solid #767f89;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.tx-field input:focus {
+  outline: 3px solid #1a73e8;
+  outline-offset: 1px;
+}
+
+.tx-field input[aria-invalid="true"] {
+  border-color: var(--tx-red);
+  background-color: #fdecee;
+}
+
+.tx-error {
+  margin-top: 0.25rem;
+  color: var(--tx-red);
+  font-size: 0.875rem;
+}
+
+.tx-field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.tx-center {
+  display: block;
+  margin-top: 1rem;
+  text-align: center;
+}
+.tx-success-card {
+  max-width: 48rem;
+}
+
+.tx-success-head {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.tx-success-head .tx-card-title {
+  margin-bottom: 0;
+}
+
+.tx-success-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background-color: #e6f4ea;
+  color: #137333;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.tx-btn-inline {
+  display: inline-block;
+  width: auto;
+  margin-top: 1.5rem;
+  padding: 0.75rem 2rem;
+  text-align: center;
+  text-decoration: none;
+}
+
+.tx-permit-list {
+  display: grid;
+  gap: 0.75rem;
+  list-style: none;
+}
+
+.tx-permit-item {
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--tx-border);
+  border-left: 4px solid #137333;
+  border-radius: 6px;
+  background-color: #ffffff;
+}
+
+.tx-permit-item strong {
+  display: block;
+  color: var(--tx-text);
+  font-size: 1rem;
+}
+
+.tx-permit-item span {
+  color: var(--tx-muted);
+  font-size: 0.875rem;
+}
