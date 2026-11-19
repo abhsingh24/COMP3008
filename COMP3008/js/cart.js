@@ -29,6 +29,12 @@ $(function () {
 
   // Runs every second: updates the countdown, or switches to "hold ended".
   function updateHold() {
+    // With a vehicle already saved, skip the vehicle step and go straight to
+    // the map (or back to the lot to reserve again).
+    if (Transaction.getVehicle()) {
+        $("#cart-browse").attr("href", "permits.html#permit-map");
+        $("#cart-reserve-again").attr("href", "permits.html#lot-permits");
+    }
     const reservation = Transaction.getReservation();
     if (!reservation) {
       showEmpty();

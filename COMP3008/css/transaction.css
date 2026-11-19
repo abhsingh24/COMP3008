@@ -359,3 +359,36 @@
   color: var(--tx-muted);
   font-size: 0.875rem;
 }
+
+.tx-term-field {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.tx-term-field label {
+  color: var(--tx-text);
+  font-weight: 700;
+}
+
+.tx-select {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #767f89;
+  border-radius: 6px;
+  background-color: #ffffff;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.tx-select:focus {
+  outline: 3px solid #1a73e8;
+  outline-offset: 1px;
+}
+
+.permit-vehicle .tx-lot-price {
+  margin: 0 0 0.75rem 0;
+  color: var(--tx-text);
+  font-size: 1.125rem;
+  font-weight: 700;
+}
