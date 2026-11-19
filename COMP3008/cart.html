@@ -72,7 +72,7 @@
         <div class="tx-card">
           <div class="tx-card-head">
             <h2 class="tx-card-title" id="cart-name"></h2>
-            <span class="tx-badge">Reserved</span>
+            <span class="tx-badge" id="cart-badge">Reserved</span>
           </div>
           <dl class="tx-details">
             <dt>Term</dt>
@@ -80,13 +80,22 @@
             <dt>Vehicle</dt>
             <dd id="cart-vehicle"></dd>
             <dt>Status</dt>
-            <dd>Reserved, not paid</dd>
+            <dd id="cart-status">Reserved, not paid</dd>
+            <dt>Time left</dt>
+            <dd id="cart-time"></dd>
           </dl>
           <button type="button" class="tx-link-btn" id="cart-cancel">Cancel reservation</button>
+          
         </div>
 
         <div class="tx-card">
           <h2 class="tx-card-title">Total</h2>
+          <div role="status">
+            <p class="tx-alert" id="cart-expired" hidden>
+              Your 15-minute hold ended and the permit was released.
+              <a href="permits.html" class="tx-link">Reserve it again</a>
+            </p>
+          </div>
           <dl class="tx-totals">
             <dt>Subtotal</dt>
             <dd id="cart-subtotal"></dd>
@@ -96,6 +105,9 @@
             <dd class="tx-total" id="cart-total"></dd>
           </dl>
           <button type="button" class="tx-btn-primary" id="cart-checkout">Checkout</button>
+          <button type="button" class="tx-test-link" id="cart-test-expire">
+            Prototype test: Reservation hold ends
+          </button>
         </div>
       </div>
     </main>

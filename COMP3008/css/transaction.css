@@ -88,8 +88,14 @@
 .tx-test-link {
   display: inline-block;
   margin-top: 1rem;
-  font-size: 0.875rem;
+  padding: 0;
+  border: none;
+  background: none;
   color: var(--tx-text);
+  font-family: inherit;
+  font-size: 0.875rem;
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 /* Make the "hidden" attribute always hide, even on elements we give a display value. */
@@ -193,4 +199,23 @@
 .tx-link {
   color: var(--tx-red);
   font-weight: 700;
+}
+
+.tx-badge-ended {
+  border-color: #c4c7c5;
+  background-color: #f1f3f4;
+  color: #44474a;
+}
+
+.tx-alert {
+  margin-bottom: 1rem;
+  padding: 0.75rem 1rem;
+  border-left: 4px solid var(--tx-red);
+  background-color: #fdecee;
+  color: var(--tx-text);
+}
+
+.tx-btn-primary:disabled {
+  background-color: #9aa0a6;
+  cursor: not-allowed;
 }

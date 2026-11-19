@@ -63,6 +63,20 @@ const Transaction = (function () {
     return "$" + (cents / 100).toFixed(2);
   }
 
+    // Milliseconds left on the hold (never below 0).
+  function timeLeft(reservation) {
+    return Math.max(0, reservation.expiresAt - Date.now());
+  }
+
+  // Prototype test: ends the hold immediately.
+  function endHoldNow() {
+    const reservation = getReservation();
+    if (reservation) {
+      reservation.expiresAt = Date.now();
+      writeJSON(RESERVATION_KEY, reservation);
+    }
+  }
+
   // The public interface. Everything above it stays private.
   return {
     saveReservation: saveReservation,
@@ -71,5 +85,7 @@ const Transaction = (function () {
     getVehicle: getVehicle,
     getTotals: getTotals,
     formatMoney: formatMoney,
+    timeLeft: timeLeft,
+    endHoldNow: endHoldNow,
   };
 })();
