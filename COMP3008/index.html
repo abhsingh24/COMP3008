@@ -6,6 +6,7 @@
     <title>Carleton University - Parking Services</title>
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/transaction.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
@@ -60,7 +61,8 @@
       </div>
       <div class="home-activePermits">
         <h2>Active Permits</h2>
-        <p>You have no permits</p>
+        <p id="home-no-permits">You have no permits</p>
+        <ul class="tx-permit-list" id="home-permits" hidden></ul>
       </div>
       <div class="home-violations">
         <h2>Unpaid Violations</h2>
@@ -70,5 +72,7 @@
         <h2>Waitlist</h2>
       </div>
     </main>
+    <script src="js/transaction.js"></script>
+    <script src="js/home-permits.js"></script>
   </body>
 </html>

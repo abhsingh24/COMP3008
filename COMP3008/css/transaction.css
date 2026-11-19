@@ -298,3 +298,64 @@
   margin-top: 1rem;
   text-align: center;
 }
+.tx-success-card {
+  max-width: 48rem;
+}
+
+.tx-success-head {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.tx-success-head .tx-card-title {
+  margin-bottom: 0;
+}
+
+.tx-success-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background-color: #e6f4ea;
+  color: #137333;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.tx-btn-inline {
+  display: inline-block;
+  width: auto;
+  margin-top: 1.5rem;
+  padding: 0.75rem 2rem;
+  text-align: center;
+  text-decoration: none;
+}
+
+.tx-permit-list {
+  display: grid;
+  gap: 0.75rem;
+  list-style: none;
+}
+
+.tx-permit-item {
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--tx-border);
+  border-left: 4px solid #137333;
+  border-radius: 6px;
+  background-color: #ffffff;
+}
+
+.tx-permit-item strong {
+  display: block;
+  color: var(--tx-text);
+  font-size: 1rem;
+}
+
+.tx-permit-item span {
+  color: var(--tx-muted);
+  font-size: 0.875rem;
+}

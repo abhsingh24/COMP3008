@@ -101,6 +101,11 @@ const Transaction = (function () {
     return permit;
   }
 
+  // Every permit the user has paid for (an empty list if none).
+  function getPermits() {
+    return readJSON(PERMITS_KEY, []);
+  }
+
   // The public interface. Everything above it stays private.
   return {
     saveReservation: saveReservation,
@@ -112,5 +117,6 @@ const Transaction = (function () {
     timeLeft: timeLeft,
     endHoldNow: endHoldNow,
     completePayment: completePayment,
+    getPermits: getPermits,
   };
 })();

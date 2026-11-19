@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Payment successful - Carleton University Parking Services</title>    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/transaction.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <!--Navigation bar at the top-->
+    <div class="navbar">
+      <!--Main logo-->
+      <div class="logo-container">
+        <img
+          src="images/carletonLogo.jpg"
+          alt="Carleton  University logo"
+          class="cu-logo"
+        />
+        <div class="logo-text">
+          <span>Parking Services</span>
+        </div>
+      </div>
+
+      <!--Buttons on the navigation bar-->
+      <ul class="headerUl">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#">Appeals</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle">
+            Permits <i class="fa-solid fa-chevron-down"></i>
+          </a>
+          <div class="dropdown-menu">
+            <a href="permits.html">Parking Permits</a>
+            <a href="#">Locker Permits</a>
+          </div>
+        </li>
+        <li><a href="#">Disclaimers</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle">
+            Profile <i class="fa-solid fa-chevron-down"></i>
+          </a>
+          <div class="dropdown-menu">
+            <a href="accounts.html">Account</a>
+            <a href="#">Vehicles</a>
+            <a href="#">Log Out</a>
+          </div>
+        </li>
+        <li>
+          <a href="cart.html" class="cart-icon">
+            <i class="fa-solid fa-cart-shopping"></i
+          ></a>
+        </li>
+      </ul>
+    </div>
+
+        <main class="tx-main">
+      <h1 class="tx-title" id="success-title">Payment successful</h1>
+
+      <div class="tx-card tx-success-card" id="success-card" hidden>
+        <div class="tx-success-head">
+          <span class="tx-success-icon" aria-hidden="true">✓</span>
+          <h2 class="tx-card-title">Your permit is active</h2>
+        </div>
+        <dl class="tx-details">
+          <dt>Permit</dt>
+          <dd id="success-name"></dd>
+          <dt>Term</dt>
+          <dd id="success-term"></dd>
+          <dt>Vehicle</dt>
+          <dd id="success-vehicle"></dd>
+          <dt>Paid</dt>
+          <dd id="success-paid"></dd>
+          <dt>Card</dt>
+          <dd id="success-last4"></dd>
+        </dl>
+      </div>
+
+      <div class="tx-card tx-empty tx-success-card" id="success-none" hidden>
+        <p>We couldn't find a recent payment.</p>
+        <a href="cart.html" class="tx-link">Go to your cart</a>
+      </div>
+
+      <a href="index.html" class="tx-btn-primary tx-btn-inline">Go to Home</a>
+    </main>
+    <script src="js/transaction.js"></script>
+    <script src="js/success.js"></script>
+  </body>
+</html>
