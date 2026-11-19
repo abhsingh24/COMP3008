@@ -6,6 +6,7 @@
     <title>Carleton University - Parking Services</title>
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/transaction.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
@@ -170,11 +171,29 @@
       </section>
 
       <section class="screen" data-screen="permit-details">
-        <div class="permit-vehicle">
-          <h2>Permit details</h2>
-          <button type="button" data-goto="cart">Reserve</button>
-          <button type="button" data-goto="lot-permits">Back</button>
-          <button type="button" data-goto="sold-out">Test: sold out</button>
+        <div class="tx-page-head">
+          <a href="#" class="tx-back" data-goto="lot-permits">&lsaquo; Back</a>
+          <h2 class="tx-page-title">Permit details</h2>
+        </div>
+
+        <img src="images/Campus_map.png" alt="Campus map" class="tx-map" />
+
+        <div class="tx-card">
+          <h3 class="tx-card-title" id="pd-name"></h3>
+          <dl class="tx-details">
+            <dt>Lot</dt>
+            <dd id="pd-lot"></dd>
+            <dt>Term</dt>
+            <dd id="pd-term"></dd>
+            <dt>Vehicle</dt>
+            <dd id="pd-vehicle"></dd>
+            <dt>Cost</dt>
+            <dd id="pd-cost"></dd>
+          </dl>
+          <button type="button" class="tx-btn-primary" id="pd-reserve">Reserve</button>
+          <a href="#" class="tx-test-link" data-goto="sold-out">
+            Prototype test: Permit sells out before you reserve
+          </a>
         </div>
       </section>
 
@@ -198,5 +217,7 @@
       </section>
     </main>
     <script src="js/main.js"></script>
+    <script src="js/transaction.js"></script>
+    <script src="js/permit-details.js"></script>
   </body>
 </html>

@@ -1,6 +1,8 @@
 // Shared data for the transaction flow: permit details -> cart -> payment -> success.
 const Transaction = (function () {
-  const RESERVATION_KEY = "cuParking.reservation";
+  const RESERVATION_KEY = "cuParking.reservation";  
+  const VEHICLE_KEY = "cuParking.vehicle";
+
   const HOLD_MINUTES = 15;
 
   // localStorage only stores text, so we convert objects to and from JSON.
@@ -44,11 +46,16 @@ const Transaction = (function () {
   function clearReservation() {
     localStorage.removeItem(RESERVATION_KEY);
   }
+  // The vehicle is saved by the Add vehicle form (a teammate's part).
+  function getVehicle() {
+    return readJSON(VEHICLE_KEY, null);
+  }
 
   // The public interface. Everything above it stays private.
   return {
     saveReservation: saveReservation,
     getReservation: getReservation,
     clearReservation: clearReservation,
+    getVehicle: getVehicle,
   };
 })();
