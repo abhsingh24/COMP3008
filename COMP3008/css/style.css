@@ -442,3 +442,125 @@ body {
 .permit-vehicle_map button:hover {
   background-color: red;
 }
+
+.cu-p {
+  width: 70%;
+  height: 80%;
+}
+
+.permit-vehicle_p7 {
+  background-color: rgba(255, 255, 255, 0.815);
+  border: 1px solid rgb(212, 214, 214);
+  border-radius: 0.7vw;
+  padding: 1.5%;
+  height: 100%;
+  width: 100%;
+  margin-top: 3%;
+}
+
+.permit-vehicle_p7 h2 {
+  font-size: 1vw;
+  font-weight: 700;
+  color: darkred;
+
+  margin-bottom: 4%;
+}
+
+.permit-vehicle_p7 button {
+  background-color: darkred;
+  border: none;
+  color: white;
+  padding: 1.5% 2%;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  font-size: 12px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 1%;
+  margin-left: 85%;
+}
+
+.permit-vehicle_p7 button:hover {
+  background-color: red;
+}
+
+.permit-vehicle_price {
+  background-color: rgba(255, 255, 255, 0.815);
+  border: 1px solid rgb(212, 214, 214);
+  border-radius: 0.7vw;
+  padding: 1.5%;
+  height: 35%;
+  width: 100%;
+  margin-top: 3%;
+}
+
+.permit-vehicle_price h1 {
+  font-size: 1.8vw;
+  font-weight: 700;
+  color: black;
+}
+
+.permit-vehicle_price h2 {
+  font-size: 1vw;
+  font-weight: 700;
+  color: darkred;
+
+  margin-bottom: 4%;
+}
+
+.permit-vehicle_price button {
+  background-color: darkred;
+  border: none;
+  color: white;
+  padding: 1.5% 2%;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 3%;
+  width: 100%;
+}
+
+.permit-vehicle_price button:hover {
+  background-color: red;
+}
+
+.permit-vehicle_error h2 {
+  font-size: 1vw;
+  color: black;
+  font-weight: 700;
+  align-items: right;
+  margin-left: 0%;
+  margin-top: 2%;
+}
+
+.permit-vehicle_error {
+  background-color: rgba(255, 255, 255, 0.815);
+  border: 1px solid rgb(212, 214, 214);
+  border-radius: 0.7vw;
+  padding: 1.5%;
+  height: 100%;
+  width: 200%;
+  margin-top: 3%;
+}
+
+.permit-vehicle_error button {
+  background-color: darkred;
+  border: none;
+  color: white;
+  padding: 1% 2%;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 1%;
+  margin-right: 50%;
+  width: 25%;
+}
