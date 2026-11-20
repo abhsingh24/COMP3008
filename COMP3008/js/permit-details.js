@@ -18,6 +18,17 @@ $(function () {
     $("<option>").val(index).text(term.label).appendTo($select);
   });
 
+  const OVERLAPRES = {
+    "Academic Year 2026–27": [
+      "Academic Year 2026–27",
+      "Fall 2026",
+      "Winter 2027",
+    ],
+    "Fall 2026": ["Fall 2026", "Academic Year 2026–27"],
+    "Winter 2027": ["Winter 2027", "Academic Year 2026–27"],
+    "Summer 2027": ["Summer 2027"],
+  };
+
   function selectedTerm() {
     return permit.terms[Number($select.val())];
   }
@@ -29,14 +40,53 @@ $(function () {
     $("#lot-price").text(priceText);
     $("#pd-term").text(term.label);
     $("#pd-cost").text(priceText);
+    check();
   }
 
   // Read the vehicle each time, because it can be added on this same page.
   function showVehicle() {
-    $("#pd-vehicle").text(Transaction.describeVehicle(Transaction.getVehicle()));
+    $("#pd-vehicle").text(
+      Transaction.describeVehicle(Transaction.getVehicle()),
+    );
     if (Transaction.getVehicle()) {
       $("#pd-no-vehicle").prop("hidden", true);
     }
+    check();
+  }
+
+  function findConflictingRes() {
+    const vehicle = Transaction.getVehicle();
+    if (!vehicle) {
+      return undefined;
+    }
+
+    const vehicleText = Transaction.describeVehicle(vehicle);
+    const blockers = OVERLAPRES[selectedTerm().label];
+    return Transaction.getPermits().find(function (p) {
+      return (
+        p.lot === permit.lot &&
+        p.vehicle === vehicleText &&
+        blockers.indexOf(p.term) !== -1
+      );
+    });
+  }
+
+  function check() {
+    const owned = findConflictingRes();
+    if (owned) {
+      $("#pd-duplicate")
+        .text(
+          "You already have a Lot " +
+            permit.lot +
+            " permit for " +
+            owned.term +
+            " on this vehicle, which covers this term. Choose a different term or vehicle.",
+        )
+        .prop("hidden", false);
+    } else {
+      $("#pd-duplicate").prop("hidden", true).text("");
+    }
+    $("#pd-reserve").prop("disabled", Boolean(owned));
   }
 
   $("#pd-name").text(permit.name);
@@ -53,6 +103,10 @@ $(function () {
     // opened permits.html#permit-map directly and skipped the vehicle step).
     if (!vehicle) {
       $("#pd-no-vehicle").prop("hidden", false);
+      return;
+    }
+    if (findConflictingRes()) {
+      check();
       return;
     }
     const term = selectedTerm();

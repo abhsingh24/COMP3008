@@ -1,6 +1,6 @@
 // Shared data for the transaction flow: permit details -> cart -> payment -> success.
 const Transaction = (function () {
-  const RESERVATION_KEY = "cuParking.reservation";  
+  const RESERVATION_KEY = "cuParking.reservation";
   const VEHICLE_KEY = "cuParking.vehicle";
   const PERMITS_KEY = "cuParking.permits";
   const HST_RATE = 0.13; // Ontario HST
@@ -78,7 +78,7 @@ const Transaction = (function () {
     return "$" + (cents / 100).toFixed(2);
   }
 
-    // Milliseconds left on the hold (never below 0).
+  // Milliseconds left on the hold (never below 0).
   function timeLeft(reservation) {
     return Math.max(0, reservation.expiresAt - Date.now());
   }
@@ -120,6 +120,12 @@ const Transaction = (function () {
     return readJSON(PERMITS_KEY, []);
   }
 
+  function resetAll() {
+    localStorage.removeItem(RESERVATION_KEY);
+    localStorage.removeItem(VEHICLE_KEY);
+    localStorage.removeItem(PERMITS_KEY);
+  }
+
   // The public interface. Everything above it stays private.
   return {
     saveReservation: saveReservation,
@@ -134,5 +140,6 @@ const Transaction = (function () {
     endHoldNow: endHoldNow,
     completePayment: completePayment,
     getPermits: getPermits,
+    resetAll: resetAll,
   };
 })();
