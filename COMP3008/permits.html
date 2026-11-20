@@ -159,30 +159,30 @@
       </section>
 
       <section class="screen" data-screen="lot-permits">
-        <div class="permit-vehicle">
+        <div class="permit-vehicle_p7">
           <h2>Lot P7</h2>
+          <img src="images/P7.png" alt="Carleton  University P7" class="cu-p" />
           <button type="button" data-goto="permit-map">Back to map</button>
         </div>
-        <div class="permit-vehicle">
+        <div class="permit-vehicle_price">
           <h2>Student Permit – Lot P7</h2>
-        <div class="tx-term-field">
+          <div class="tx-term-field">
             <label for="pd-term-select">Term</label>
             <select id="pd-term-select" class="tx-select"></select>
-        </div>
-        <p id="lot-price" class="tx-lot-price">$580 + HST</p>
+          </div>
+          <p id="lot-price" class="tx-lot-price">$580 + HST</p>
           <button type="button" data-goto="permit-details">Select</button>
         </div>
       </section>
 
       <section class="screen" data-screen="permit-details">
-        <div class="tx-page-head">
-          <a href="#" class="tx-back" data-goto="lot-permits">&lsaquo; Back</a>
-          <h2 class="tx-page-title">Permit details</h2>
+        <div class="permit-vehicle_p7">
+          <h2>Lot P7</h2>
+          <img src="images/P7.png" alt="Carleton  University P7" class="cu-p" />
+          <button type="button" data-goto="lot-permits">Back to map</button>
         </div>
 
-        <img src="images/Campus_map.png" alt="Campus map" class="tx-map" />
-
-        <div class="tx-card">
+        <div class="tx-card_f">
           <h3 class="tx-card-title" id="pd-name"></h3>
           <dl class="tx-details">
             <dt>Lot</dt>
@@ -194,7 +194,9 @@
             <dt>Cost</dt>
             <dd id="pd-cost"></dd>
           </dl>
-          <button type="button" class="tx-btn-primary" id="pd-reserve">Reserve</button>
+          <button type="button" class="tx-btn-primary" id="pd-reserve">
+            Reserve
+          </button>
           <a href="#" class="tx-test-link" data-goto="sold-out">
             Prototype test: Permit sells out before you reserve
           </a>
@@ -202,7 +204,7 @@
       </section>
 
       <section class="screen" data-screen="sold-out">
-        <div class="permit-vehicle">
+        <div class="permit-vehicle_error">
           <h2>This permit is no longer available</h2>
           <button type="button" data-goto="permit-map">
             Show other permits
