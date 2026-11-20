@@ -441,6 +441,13 @@
   font-size: 0.8125rem;
 }
 
+.vf-blank {
+  display: block;
+  margin-bottom: 0.25rem;
+  color: rgba(255, 255, 255, 0.815);
+  font-size: 0.8125rem;
+}
+
 .vf-text {
   color: var(--tx-text) !important;
   font-size: 1rem !important;
@@ -463,4 +470,8 @@
 .permit-vehicle .tx-alert {
   font-size: 0.9375rem;
   color: var(--tx-text);
+}
+
+#vehicle-saved-msg {
+  color: black;
 }
