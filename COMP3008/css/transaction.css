@@ -402,3 +402,65 @@
   font-size: 1.125rem;
   font-weight: 700;
 }
+
+/* ---------- Add vehicle form (js/vehicle-form.js) ---------- */
+/* .permit-vehicle p in style.css indents every paragraph 40%; undo that here. */
+.permit-vehicle.vf-card p,
+.permit-vehicle .tx-alert {
+  margin-left: 0;
+}
+
+.permit-vehicle.vf-card .tx-error {
+  margin-top: 0.25rem;
+  color: var(--tx-red);
+  font-size: 0.875rem;
+}
+
+.permit-vehicle.vf-card {
+  padding: 1.5rem;
+}
+
+.permit-vehicle.vf-card h2 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.vf-select {
+  width: 100%;
+}
+
+.tx-field select[aria-invalid="true"] {
+  border-color: var(--tx-red);
+  background-color: #fdecee;
+}
+
+.vf-hint {
+  display: block;
+  margin-bottom: 0.25rem;
+  color: var(--tx-muted);
+  font-size: 0.8125rem;
+}
+
+.vf-text {
+  color: var(--tx-text) !important;
+  font-size: 1rem !important;
+  line-height: 1.5;
+}
+
+.permit-vehicle.vf-card button[type="submit"] {
+  padding: 0.625rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0.5rem 1rem 0 0;
+}
+
+.permit-vehicle button:focus-visible,
+.vf-cancel:focus-visible {
+  outline: 3px solid #1a73e8;
+  outline-offset: 2px;
+}
+
+.permit-vehicle .tx-alert {
+  font-size: 0.9375rem;
+  color: var(--tx-text);
+}

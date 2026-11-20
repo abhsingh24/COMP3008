@@ -88,15 +88,74 @@
         </div>
         <div class="permit-vehicle">
           <h2>Vehicle</h2>
-          <p>No vehicle added</p>
-          <button type="button" data-goto="vehicle-form">Add Vehicle</button>
+          <p id="vehicle-status">No vehicle added</p>
+          <button type="button" id="vehicle-add-btn" data-goto="vehicle-form">Add Vehicle</button>
+          <button type="button" id="vehicle-continue-btn" data-goto="permit-map" hidden>Continue</button>
         </div>
       </section>
 
       <section class="screen" data-screen="vehicle-form">
-        <div class="permit-vehicle">
-          <h2>Vehicle information</h2>
-          <button type="button" data-goto="vehicle-added">Save</button>
+        <div class="permit-vehicle vf-card">
+          <h2 id="vf-title">Vehicle information</h2>
+
+          <div role="alert">
+            <p class="tx-alert" id="vf-summary" hidden></p>
+          </div>
+
+          <form id="vf-form" novalidate>
+            <div class="tx-field-row">
+              <div class="tx-field">
+                <label for="vf-plate">Licence plate</label>
+                <span class="vf-hint" id="vf-plate-hint">2–8 letters or numbers, as shown on your plate</span>
+                <input id="vf-plate" type="text" autocomplete="off" maxlength="10"
+                  placeholder="ABCD 123" aria-describedby="vf-plate-hint vf-plate-error" />
+                <p class="tx-error" id="vf-plate-error"></p>
+              </div>
+              <div class="tx-field">
+                <label for="vf-province">Province or state</label>
+                <select id="vf-province" class="tx-select vf-select" aria-describedby="vf-province-error">
+                  <option value="">Choose…</option>
+                  <option value="ON">Ontario</option>
+                  <option value="QC">Quebec</option>
+                  <option value="Other CA">Other province</option>
+                  <option value="US">United States</option>
+                </select>
+                <p class="tx-error" id="vf-province-error"></p>
+              </div>
+            </div>
+
+            <div class="tx-field-row">
+              <div class="tx-field">
+                <label for="vf-make">Make</label>
+                <input id="vf-make" type="text" autocomplete="off" maxlength="30"
+                  placeholder="Honda" aria-describedby="vf-make-error" />
+                <p class="tx-error" id="vf-make-error"></p>
+              </div>
+              <div class="tx-field">
+                <label for="vf-model">Model</label>
+                <input id="vf-model" type="text" autocomplete="off" maxlength="30"
+                  placeholder="Civic" aria-describedby="vf-model-error" />
+                <p class="tx-error" id="vf-model-error"></p>
+              </div>
+            </div>
+
+            <div class="tx-field">
+              <label for="vf-colour">Colour</label>
+              <input id="vf-colour" type="text" autocomplete="off" maxlength="20"
+                placeholder="Grey" aria-describedby="vf-colour-error" />
+              <p class="tx-error" id="vf-colour-error"></p>
+            </div>
+
+            <button type="submit" id="vf-save">Save vehicle</button>
+            <a href="#" class="tx-link vf-cancel" id="vf-cancel" data-goto="account-vehicle">Cancel</a>
+          </form>
+        </div>
+        <div class="permit-vehicle vf-card">
+          <h2>Why we need this</h2>
+          <p class="vf-text">
+            Your permit is linked to your licence plate. Parking enforcement
+            checks the plate, so it has to match your vehicle exactly.
+          </p>
         </div>
       </section>
 
@@ -123,8 +182,9 @@
         </div>
         <div class="permit-vehicle">
           <h2>Vehicle</h2>
-          <p>Vehicle saved</p>
+          <p role="status" id="vehicle-saved-msg">Vehicle saved</p>
           <button type="button" data-goto="permit-map">Continue</button>
+          <button type="button" data-goto="vehicle-form">Edit vehicle</button>
         </div>
       </section>
 
@@ -194,6 +254,13 @@
             <dt>Cost</dt>
             <dd id="pd-cost"></dd>
           </dl>
+          <div role="alert">
+            <p class="tx-alert" id="pd-no-vehicle" hidden>
+              Add a vehicle before you reserve, because your permit is linked to
+              your plate.
+              <a href="#" class="tx-link" data-goto="vehicle-form">Add a vehicle</a>
+            </p>
+          </div>
           <button type="button" class="tx-btn-primary" id="pd-reserve">
             Reserve
           </button>
@@ -225,5 +292,6 @@
     <script src="js/main.js"></script>
     <script src="js/transaction.js"></script>
     <script src="js/permit-details.js"></script>
+    <script src="js/vehicle-form.js"></script>
   </body>
 </html>

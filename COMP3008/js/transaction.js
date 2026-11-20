@@ -48,9 +48,23 @@ const Transaction = (function () {
   function clearReservation() {
     localStorage.removeItem(RESERVATION_KEY);
   }
-  // The vehicle is saved by the Add vehicle form (a teammate's part).
+  // The vehicle is saved by the Add vehicle form (js/vehicle-form.js).
   function getVehicle() {
     return readJSON(VEHICLE_KEY, null);
+  }
+
+  // vehicle = { plate, province, make, model, colour }
+  function saveVehicle(vehicle) {
+    writeJSON(VEHICLE_KEY, vehicle);
+    return vehicle;
+  }
+
+  // Short text used on the permit, cart and success screens.
+  function describeVehicle(vehicle) {
+    if (!vehicle) {
+      return "No vehicle added";
+    }
+    return vehicle.make + " " + vehicle.model + " · " + vehicle.plate;
   }
 
   // Money is handled in cents (whole numbers) to avoid rounding errors.
@@ -112,6 +126,8 @@ const Transaction = (function () {
     getReservation: getReservation,
     clearReservation: clearReservation,
     getVehicle: getVehicle,
+    saveVehicle: saveVehicle,
+    describeVehicle: describeVehicle,
     getTotals: getTotals,
     formatMoney: formatMoney,
     timeLeft: timeLeft,

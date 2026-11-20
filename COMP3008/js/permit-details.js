@@ -31,26 +31,36 @@ $(function () {
     $("#pd-cost").text(priceText);
   }
 
-  const vehicle = Transaction.getVehicle();
-  let vehicleText = "No vehicle added";
-  if (vehicle) {
-    vehicleText = vehicle.make + " " + vehicle.model + " · " + vehicle.plate;
+  // Read the vehicle each time, because it can be added on this same page.
+  function showVehicle() {
+    $("#pd-vehicle").text(Transaction.describeVehicle(Transaction.getVehicle()));
+    if (Transaction.getVehicle()) {
+      $("#pd-no-vehicle").prop("hidden", true);
+    }
   }
 
   $("#pd-name").text(permit.name);
   $("#pd-lot").text(permit.lot);
-  $("#pd-vehicle").text(vehicleText);
+  showVehicle();
   showTerm();
 
   $select.on("change", showTerm);
+  $(document).on("vehicle:saved", showVehicle); // sent by vehicle-form.js
 
   $("#pd-reserve").on("click", function () {
+    const vehicle = Transaction.getVehicle();
+    // Error path: a permit can't be reserved without a vehicle (e.g. the user
+    // opened permits.html#permit-map directly and skipped the vehicle step).
+    if (!vehicle) {
+      $("#pd-no-vehicle").prop("hidden", false);
+      return;
+    }
     const term = selectedTerm();
     Transaction.saveReservation({
       lot: permit.lot,
       name: permit.name,
       term: term.label,
-      vehicle: vehicleText,
+      vehicle: Transaction.describeVehicle(vehicle),
       price: term.price,
     });
     window.location.href = "cart.html";
