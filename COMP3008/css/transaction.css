@@ -473,4 +473,20 @@
 
 #vehicle-saved-msg {
   color: black;
+  background-color: #e0ffea;
+  border: 2px solid green;
+  border-radius: 7px;
+  width: 97%;
+  padding: 2%;
+  margin-left: 2%;
+}
+
+#vehicle-status {
+  color: black;
+  background-color: #e0ffea;
+  border: 2px solid green;
+  border-radius: 7px;
+  width: 97%;
+  padding: 2%;
+  margin-left: 2%;
 }

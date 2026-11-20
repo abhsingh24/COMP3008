@@ -371,7 +371,7 @@ body {
 }
 
 .info_questions {
-  margin-top: -5%;
+  margin-top: -3%;
   width: 30%;
   margin-left: 8%;
 }
@@ -401,11 +401,20 @@ body {
   margin-top: 5.2%;
 }
 
+.info_pre-fill {
+  display: flex;
+}
+
+.info_pre-fill h2 {
+  margin-top: 0%;
+}
+
 .info_pre-fill p {
   font-size: 0.8vw;
   color: green;
   align-items: left;
-  margin-left: 74%;
+  margin-left: 65%;
+  margin-top: 0%;
 }
 
 .cu-map {
@@ -479,6 +488,7 @@ body {
   border-radius: 5px;
   margin-top: 1%;
   margin-left: 85%;
+  align-items: right;
 }
 
 .permit-vehicle_p7 button:hover {
@@ -506,6 +516,12 @@ body {
   color: darkred;
 
   margin-bottom: 4%;
+}
+
+.permit-vehicle_price p {
+  font-size: 0.9vw;
+  font-weight: 700;
+  color: black;
 }
 
 .permit-vehicle_price button {
